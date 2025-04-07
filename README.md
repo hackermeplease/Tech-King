@@ -31,14 +31,13 @@
 ## DEPLOYMENT
 
 <p align="center">
-  <a href="https://dashboard.heroku.com/new?template=https://github.com/hackermeplease/Tech-King" target="_blank" style="margin-right: 10px;">
-    <img alt="Deploy" src=https://www.herokucdn.com/deploy/button.svg"/>
+  <a href="https://dashboard.heroku.com/new?template=https://github.com/Fortunatusmokaya/dreaded-v2" target="_blank" style="margin-right: 10px;">
+    <img alt="Deploy" src="https://www.herokucdn.com/deploy/button.svg"/>
   </a>
-  </p>
-<p align="center">
-  heroku or panel *safety* 💯 guaranteed.
 </p>
-
+<p align="center">
+  Heroku safety 💯 guaranteed.
+</p>
 
 <details>
 <summary>MANUAL INSTALLATION</summary>
