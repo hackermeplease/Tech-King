@@ -1,5 +1,4 @@
 # Tech-King
-WhatsApp bot based on baileys.
 <div align="center">
 
 | [![Gentlemen Admin](https://github.com/hackermeplease/Tech-King-/blob/main/Techking.jpeg?lenght=50width=50)](https://github.com/hackermeplease/Tech-King)|
