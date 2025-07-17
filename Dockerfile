@@ -1,4 +1,4 @@
-FROM node:lts-buster
+FROM debian:bullseye-slim
 
 # Prevent interactive frontend issues
 ENV DEBIAN_FRONTEND=noninteractive
