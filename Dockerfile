@@ -1,10 +1,10 @@
 FROM node:lts-buster
 
+# Prevent interactive frontend issues
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
+  apt-get install -y ffmpeg imagemagick libwebp-dev && \
   apt-get upgrade -y && \
   rm -rf /var/lib/apt/lists/*
 
