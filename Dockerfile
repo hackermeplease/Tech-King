@@ -1,11 +1,6 @@
-FROM debian:buster-slim
+FROM node:16-bullseye-slim
 
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
-    sed -i 's|security.debian.org|archive.debian.org/|g' /etc/apt/sources.list && \
-    sed -i '/buster-updates/d' /etc/apt/sources.list
-
+# Install system dependencies
 RUN apt-get update && \
     apt-get install -y ffmpeg imagemagick libwebp-dev && \
     apt-get upgrade -y && \
