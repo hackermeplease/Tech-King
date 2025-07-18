@@ -1,36 +1,7 @@
-# render.yaml
 services:
   - type: web
     name: whatsapp-bot
-    env: node
     plan: free
-    buildCommand: docker build -t whatsapp-bot .
+    buildCommand: docker build --no-cache -t whatsapp-bot .
     startCommand: docker run -v ./session:/app/.wwebjs_auth -p 7860:7860 whatsapp-bot
-    
-    # Build settings
-    buildCommand: |
-      npm install
-      npm run build
-      
-    # Start command (matches your package.json)
-    startCommand: pm2-runtime start index.js --name malvin-xd
-    
-    # Health check (critical for WhatsApp connection stability)
-    healthCheckPath: /
-    healthCheckTimeoutSeconds: 30
-    
-    # Auto-deploy from GitHub
-    autoDeploy: true
-    
-    # Environment variables (add these in Render dashboard too)
-    envVars:
-      - key: DISPLAY
-        value: ":99"
-      - key: PUPPETEER_EXECUTABLE_PATH
-        value: "/usr/bin/google-chrome"
-        
-wwebjs_auth -p 7860:7860 whatsapp-bot
-
-  build:
-  dockerfile: Dockerfile
-  cache_enabled: false
+    healthCheckPath: /health
