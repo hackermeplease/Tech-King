@@ -1,6 +1,6 @@
 FROM node:lts-buster
 
-# Install system dependencies (fixed version)
+# Install system dependencies (fully corrected)
 RUN apt-get update && \
     apt-get install -y \
     ffmpeg \
@@ -13,15 +13,24 @@ RUN apt-get update && \
     && apt-get update \
     && apt-get install -y google-chrome-stable \
     fonts-freefont-ttf \
-    && apt-get upgrade -y \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Set working directory
 WORKDIR /app
 
+# Install app dependencies
 COPY package.json .
 RUN npm install --production
 
+# Copy app source
 COPY . .
 
+# Create WhatsApp session directory
+RUN mkdir -p .wwebjs_auth
+
+# Expose port
 EXPOSE 7860
+
+# Start command
 CMD ["npm", "start"]
