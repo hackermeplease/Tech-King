@@ -5,3 +5,10 @@ services:
     buildCommand: docker build --no-cache -t whatsapp-bot .
     startCommand: docker run -v ./session:/app/.wwebjs_auth -p 7860:7860 whatsapp-bot
     healthCheckPath: /health
+build:
+  buildpacks:
+    - render/nodejs
+
+run:
+  web: npm start
+  
