@@ -3,11 +3,11 @@ FROM node:lts-buster
 # Create app directory
 WORKDIR /app
 
-# Copy package.json and yarn.lock (or package-lock.json if using npm)
-COPY package.json yarn.lock ./
+# Copy package files
+COPY package.json package-lock.json ./
 
 # Install dependencies
-RUN yarn install --network-concurrency 1
+RUN npm install
 
 # Copy the rest of your application files
 COPY . .
