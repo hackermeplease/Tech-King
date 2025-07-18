@@ -3,8 +3,9 @@ services:
   - type: web
     name: whatsapp-bot
     env: node
-    plan: free  # Remove for paid plans
-    region: singapore  # Choose closest to your users
+    plan: free
+    buildCommand: docker build -t whatsapp-bot .
+    startCommand: docker run -v ./session:/app/.wwebjs_auth -p 7860:7860 whatsapp-bot
     
     # Build settings
     buildCommand: |
@@ -27,3 +28,5 @@ services:
         value: ":99"
       - key: PUPPETEER_EXECUTABLE_PATH
         value: "/usr/bin/google-chrome"
+        
+wwebjs_auth -p 7860:7860 whatsapp-bot
