@@ -1,6 +1,6 @@
 FROM node:lts-buster
 
-# Install system dependencies
+# Install system dependencies (fixed version)
 RUN apt-get update && \
     apt-get install -y \
     ffmpeg \
@@ -16,25 +16,12 @@ RUN apt-get update && \
     && apt-get upgrade -y \
     && rm -rf /var/lib/apt/lists/*
 
-# Create app directory
 WORKDIR /app
 
-# Install app dependencies
 COPY package.json .
 RUN npm install --production
 
-# Bundle app source
 COPY . .
 
-# Create directory for WhatsApp session storage
-RUN mkdir -p .wwebjs_auth && \
-    chown -R node:node .wwebjs_auth
-
-# Switch to non-root user
-USER node
-
-# Expose port
 EXPOSE 7860
-
-# Start command (matches your package.json)
 CMD ["npm", "start"]
