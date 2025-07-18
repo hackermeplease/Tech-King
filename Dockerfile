@@ -24,8 +24,8 @@ RUN echo "deb http://archive.debian.org/debian buster main" > /etc/apt/sources.l
 
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package.json package-lock.json ./
+# Copy only package.json first
+COPY package.json .
 RUN npm install --omit=dev
 
 # Copy app source
