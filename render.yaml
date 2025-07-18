@@ -30,3 +30,7 @@ services:
         value: "/usr/bin/google-chrome"
         
 wwebjs_auth -p 7860:7860 whatsapp-bot
+
+  build:
+  dockerfile: Dockerfile
+  cache_enabled: false
