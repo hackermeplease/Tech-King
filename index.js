@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8000;
 let server = require('./qr'),
     code = require('./pair');
 require('events').EventEmitter.defaultMaxListeners = 500;
+app.get('/health', (req, res) => res.send('OK'));
 app.use('/server', server);
 app.use('/code', code);
 app.use('/pair',async (req, res, next) => {
