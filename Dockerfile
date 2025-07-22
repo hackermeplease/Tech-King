@@ -26,7 +26,7 @@ WORKDIR /app
 
 # Copy only package.json first
 COPY package.json .
-RUN npm install --omit=dev
+RUN npm install && npm install -g qrcode-terminal pm2
 
 # Copy app source
 COPY . .
